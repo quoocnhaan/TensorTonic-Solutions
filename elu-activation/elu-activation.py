@@ -4,9 +4,5 @@ def elu(x, alpha):
     Apply ELU activation to each element.
     """
     # Write code here
-    elu = []
-    for value in x:
-        if value <= 0:
-            value = alpha * (np.exp(value) -1)
-        elu.append(value)
-    return elu
+    x = np.array(x)
+    return np.where(x > 0, x, alpha*(np.exp(x)-1)).tolist()
